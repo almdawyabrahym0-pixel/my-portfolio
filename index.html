@@ -31,20 +31,31 @@
             line-height: 1.6;
             background-color: var(--background-light);
             color: var(--text-color);
-            direction: ltr; /* تغيير اتجاه الصفحة إلى اليسار */
+            direction: ltr;
             text-align: left;
             scroll-behavior: smooth;
         }
 
+        /* --- تأثير عام على الروابط والنصوص القابلة للتفاعل --- */
         a {
             text-decoration: none;
             color: var(--primary-color);
-            transition: color var(--transition-speed);
+            transition: color var(--transition-speed), transform var(--transition-speed);
         }
 
         a:hover {
             color: var(--secondary-color);
+            transform: translateY(-1px); /* رفع خفيف */
         }
+
+        /* --- تأثير Hover على الفقرات الهامة --- */
+        p a {
+            color: var(--primary-color);
+            font-weight: bold;
+            display: inline-block; /* لتمكين تأثير التحويل */
+        }
+
+        /* ---------------------------------------------------- */
 
         .container {
             width: 90%;
@@ -56,15 +67,13 @@
         section {
             padding: 80px 0;
             margin-bottom: 20px;
-            background-color: var(--background-dark); /* خلفية داكنة للعناصر */
+            background-color: var(--background-dark);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-            /* إضافة خاصية opacity و transform لبدء الحركة */
             opacity: 0; 
             transform: translateY(20px);
             transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
         
-        /* تظهر الأقسام التي وصلت إليها التمريرة */
         .section-visible {
             opacity: 1;
             transform: translateY(0);
@@ -88,7 +97,7 @@
             border-radius: 2px;
         }
 
-        /* 🖼️ الأزرار (Buttons) */
+        /* 🖼️ الأزرار (Buttons) - Hover Effect */
         .btn {
             display: inline-block;
             padding: 10px 25px;
@@ -110,7 +119,7 @@
             background-color: var(--secondary-color);
             border-color: var(--secondary-color);
             color: #121212;
-            transform: scale(1.05); /* حركة صغيرة عند التحويم */
+            transform: scale(1.05); /* حركة عند التحويم */
         }
 
         .secondary-btn {
@@ -122,10 +131,10 @@
         .secondary-btn:hover {
             background-color: var(--primary-color);
             color: black;
-            transform: scale(1.05); /* حركة صغيرة عند التحويم */
+            transform: scale(1.05); /* حركة عند التحويم */
         }
 
-        /* 🔝 رأس الصفحة (Header) */
+        /* 🔝 رأس الصفحة (Header) - Navigation Hover Effect */
         header {
             background-color: #000000;
             color: white;
@@ -134,90 +143,13 @@
             z-index: 1000;
         }
 
-        header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            color: white;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-        }
-
-        nav ul li a {
-            color: white;
-            padding: 15px 20px;
-            display: block;
-            font-weight: 500;
-        }
-
         nav ul li a:hover {
             background-color: rgba(255, 255, 255, 0.1);
             color: var(--primary-color);
             transform: translateY(-2px); /* حركة خفيفة عند التحويم */
         }
         
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        /* 🦸 قسم البطل (Hero) - يظهر مباشرة */
-        .hero-section {
-            background: var(--background-light);
-            padding: 100px 0;
-            opacity: 1; /* إظهار مباشر */
-            transform: translateY(0); /* إظهار مباشر */
-            transition: none; /* إزالة الانتقال من هنا */
-        }
-
-        .hero-section .container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 40px;
-        }
-
-        .hero-content {
-            flex: 1;
-            /* حركة العنوان عند التحميل */
-            animation: fadeInLeft 1s ease-out;
-        }
-
-        .hero-content h2 {
-            font-size: 3.5rem;
-            color: var(--heading-color);
-            margin-bottom: 10px;
-            text-align: left;
-        }
-        
-        .hero-content h3 {
-            font-size: 2rem;
-            color: var(--primary-color);
-            margin-bottom: 20px;
-            animation: fadeInDown 1.2s ease-out;
-        }
-
-        .hero-content p {
-            font-size: 1.1rem;
-            margin-bottom: 30px;
-        }
-
-        /* لون الحرف الأول من الاسم */
-        .hero-content h2 .first-letter {
-            color: var(--primary-color);
-        }
-
+        /* 🦸 قسم البطل (Hero) - Image Hover Effect */
         .hero-image {
             flex: 1;
             text-align: center;
@@ -238,102 +170,69 @@
             transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
         }
 
-        /* تأثير الحركة عند مرور الماوس */
+        /* تأثير الحركة عند مرور الماوس على الصورة */
         .hero-image img:hover {
             transform: scale(1.05) rotateY(15deg) rotateX(5deg);
             box-shadow: 0 10px 30px rgba(0, 188, 212, 0.7);
         }
 
-        /* 🛠️ المهارات (Skills) */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            text-align: center;
-        }
-
+        /* 🛠️ المهارات (Skills) - Hover Effect */
         .skill-item {
             background-color: #2c2c2c;
             padding: 30px;
             border-radius: var(--border-radius);
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
             transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+            cursor: pointer; /* للإشارة إلى التفاعل */
         }
 
         .skill-item:hover {
-            transform: translateY(-10px); /* زيادة حركة الرفع */
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5); /* زيادة الظل */
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
         }
 
-        .skill-item i {
-            font-size: 3rem;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-            transition: color var(--transition-speed);
-        }
-        
         .skill-item:hover i {
-             color: var(--secondary-color); /* تغيير لون الأيقونة عند التحويم */
+             color: var(--secondary-color);
         }
 
-        .skill-item h3 {
-            font-size: 1.2rem;
-            color: var(--heading-color);
-        }
-
-        /* 💼 المشاريع (Projects) */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
+        /* 💼 المشاريع (Projects) - Hover Effect */
         .project-card {
             background-color: #2c2c2c;
             border-radius: var(--border-radius);
             overflow: hidden;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+            cursor: pointer; /* للإشارة إلى التفاعل */
         }
 
         .project-card:hover {
             transform: scale(1.03);
-            box-shadow: 0 8px 20px rgba(0, 188, 212, 0.3); /* ظل بلون أساسي */
-        }
-
-        .project-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            transition: transform 0.5s;
+            box-shadow: 0 8px 20px rgba(0, 188, 212, 0.3);
         }
 
         .project-card:hover img {
-            transform: scale(1.1); /* تكبير الصورة داخل البطاقة */
+            transform: scale(1.1);
         }
 
-        .project-card h3 {
-            padding: 15px;
-            color: var(--primary-color);
+        /* 📧 التواصل (Contact) - Form and Social Links Hover Effects */
+        #contact-form input,
+        #contact-form textarea {
+            /* ... (تنسيقات سابقة) ... */
+            transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
         }
 
-        .project-card p {
-            padding: 0 15px 15px;
+        /* تأثير على حقول الإدخال */
+        #contact-form input:hover,
+        #contact-form textarea:hover {
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 5px rgba(248, 249, 250, 0.5);
         }
-
-        .project-link {
-            display: block;
-            padding: 15px;
-            text-align: center;
-            background-color: var(--primary-color);
-            color: black;
-            font-weight: bold;
-        }
-
-        /* 📧 التواصل (Contact) */
-        .contact-section {
-            text-align: center;
-            background-color: var(--background-light);
+        
+        #contact-form input:focus,
+        #contact-form textarea:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 10px rgba(0, 188, 212, 0.7); /* ظل أكثر وضوحًا عند التركيز */
+            outline: none;
         }
 
         /* حركة الأيقونات الاجتماعية */
@@ -346,9 +245,9 @@
 
         .social-links a:hover {
             color: var(--primary-color);
-            transform: translateY(-5px) scale(1.1); /* رفع وتكبير الأيقونة */
+            transform: translateY(-5px) scale(1.2); /* رفع وتكبير أكبر للأيقونة */
         }
-
+        
         /* 🔑 Keyframe Animations (الحركات عند تحميل الصفحة) */
         @keyframes fadeInDown {
             0% { opacity: 0; transform: translateY(-20px); }
@@ -367,56 +266,7 @@
         
         /* 📱 استجابة شاشات الجوال (Media Query) */
         @media (max-width: 768px) {
-            /* Header */
-            header .container {
-                flex-wrap: wrap;
-            }
-
-            nav {
-                width: 100%;
-                order: 3;
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.4s ease-out;
-            }
-            
-            nav.open {
-                max-height: 300px;
-            }
-
-            nav ul {
-                flex-direction: column;
-                text-align: center;
-                padding: 10px 0;
-            }
-
-            nav ul li a {
-                padding: 10px;
-            }
-
-            .menu-toggle {
-                display: block;
-            }
-
-            /* Hero */
-            .hero-section .container {
-                flex-direction: column-reverse;
-                text-align: center;
-            }
-
-            /* تحديث محاذاة النص في الجوال */
-            .hero-content h2, .hero-content h3 {
-                text-align: center;
-            }
-            
-            .hero-image {
-                margin-bottom: 30px;
-            }
-
-            /* Sections */
-            section {
-                padding: 40px 0;
-            }
+            /* ... (تنسيقات سابقة) ... */
         }
     </style>
 </head>
@@ -443,165 +293,3 @@
             <div class="hero-content">
                 <p>Hello, I am</p>
                 <h2><span class="first-letter">I</span>brahim Elmdawy</h2>
-                <h3>Data Analyst</h3>
-                <p>A specialist in building innovative and engaging web solutions.</p>
-                <a href="#projects" class="btn primary-btn">View My Work</a>
-                <a href="Ibrahim_Elmdawy_CV.pdf" target="_blank" class="btn secondary-btn" rel="noopener noreferrer">Download CV</a>
-            </div>
-            <div class="hero-image">
-                <img src="https://i.ibb.co/Xz1137c/image.png" alt="Ibrahim Elmdawy Professional Photo">
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="about-section">
-        <div class="container">
-            <h2>About Me</h2>
-            <p>
-                I am **Ibrahim Elmdawy**, a dedicated **Data Analyst** based in **Tanta, Gharbia, Egypt**. My expertise lies in transforming complex data sets into actionable business insights. My passion involves **statistical modeling and predictive analytics**, using tools like Python (Pandas, NumPy, Scikit-learn) and SQL to drive strategic decision-making. I constantly seek new challenges that allow me to apply my skills in **data visualization and ETL processes**. My goal is to **leverage data storytelling to optimize organizational performance and achieve measurable growth.**
-            </p>
-            <p>
-                **Location:** Tanta, Gharbia, Egypt
-            </p>
-        </div>
-    </section>
-
-    <section id="skills" class="skills-section">
-        <div class="container">
-            <h2>Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-item">
-                    <i class="fas fa-database"></i>
-                    <h3>SQL & Databases</h3>
-                </div>
-                <div class="skill-item">
-                    <i class="fab fa-python"></i>
-                    <h3>Python (Pandas, Scikit)</h3>
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-chart-bar"></i>
-                    <h3>Data Visualization (Tableau/Power BI)</h3>
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-file-excel"></i>
-                    <h3>Advanced Excel</h3>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects" class="projects-section">
-        <div class="container">
-            <h2>Latest Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <img src="project-1-image.jpg" alt="First Project Name">
-                    <h3>First Project Name</h3>
-                    <p>A brief description of the project and the technologies used (e.g., Python, Tableau).</p>
-                    <a href="#" target="_blank" class="project-link" rel="noopener noreferrer">View Project</a>
-                </div>
-                <div class="project-card">
-                    <img src="project-2-image.jpg" alt="Second Project Name">
-                    <h3>Second Project Name</h3>
-                    <p>A brief description of the project and the technologies used (e.g., SQL, Power BI).</p>
-                    <a href="#" target="_blank" class="project-link" rel="noopener noreferrer">View Project</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="contact-section">
-        <div class="container">
-            <h2>Contact Me</h2>
-            <p>I am available for new projects and job opportunities. Contact me via:</p>
-            <form id="contact-form">
-                <input type="text" name="name" placeholder="Full Name" required>
-                <input type="email" name="email" placeholder="Email Address" required>
-                <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-                <button type="submit" class="btn primary-btn">Send Message</button>
-                <p id="form-message" style="margin-top: 10px;"></p>
-            </form>
-            <div class="social-links">
-                <a href="https://linkedin.com/in/yourprofile" target="_blank" aria-label="LinkedIn" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://github.com/yourprofile" target="_blank" aria-label="GitHub" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
-                <a href="mailto:almdawyabrahym0@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                <a href="tel:+201016187009" aria-label="Phone (01016187009)" style="margin-right: 15px;"><i class="fas fa-phone"></i></a>
-            </div>
-            <p style="margin-top: 10px;">
-                **Mobile:** +20 101 618 7009 | **Email:** almdawyabrahym0@gmail.com
-            </p>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Ibrahim Elmdawy. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // 1. وظيفة تبديل قائمة التنقل على الجوال
-            const menuToggle = document.querySelector('.menu-toggle');
-            const navMenu = document.getElementById('nav-menu');
-
-            menuToggle.addEventListener('click', () => {
-                navMenu.classList.toggle('open');
-            });
-
-            // إغلاق القائمة عند الضغط على أي رابط فيها
-            navMenu.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    navMenu.classList.remove('open');
-                });
-            });
-
-
-            // 2. معالجة نموذج التواصل (Frontend Only)
-            const contactForm = document.getElementById('contact-form');
-            const formMessage = document.getElementById('form-message');
-
-            contactForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                
-                formMessage.textContent = '... Sending your message';
-                formMessage.style.color = '#007BFF';
-
-                // محاكاة تأخير الإرسال
-                setTimeout(() => {
-                    const formData = new FormData(contactForm);
-                    const name = formData.get('name');
-                    
-                    if (name) {
-                        formMessage.textContent = `Thank you, ${name}! Your message has been received successfully. I will contact you shortly.`;
-                        formMessage.style.color = 'green';
-                        contactForm.reset();
-                    } else {
-                        formMessage.textContent = 'Something went wrong. Please fill in all fields.';
-                        formMessage.style.color = 'red';
-                    }
-
-                }, 2000);
-            });
-
-            // 3. تأثير الانيميشن عند التمرير (Scroll Reveal)
-            const sections = document.querySelectorAll('section:not(#hero)');
-
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('section-visible');
-                        observer.unobserve(entry.target); // إيقاف المراقبة بعد الظهور مرة واحدة
-                    }
-                });
-            }, {
-                threshold: 0.1 // يبدأ الظهور عندما يكون 10% من القسم مرئيًا
-            });
-
-            sections.forEach(section => {
-                observer.observe(section);
-            });
-        });
-    </script>
-</body>
-</html>
