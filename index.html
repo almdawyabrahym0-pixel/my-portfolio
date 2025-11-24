@@ -194,7 +194,7 @@
             margin-bottom: 30px;
         }
 
-        /* حرف الاسم الأول بلون الوظيفة */
+        /* لون الحرف الأول من الاسم */
         .hero-content h2 .first-letter {
             color: var(--primary-color);
         }
@@ -359,4 +359,224 @@
         }
 
         /* 📱 استجابة شاشات الجوال (Media Query) */
-        @media (max-width
+        @media (max-width: 768px) {
+            /* Header */
+            header .container {
+                flex-wrap: wrap;
+            }
+
+            nav {
+                width: 100%;
+                order: 3;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.4s ease-out;
+            }
+            
+            nav.open {
+                max-height: 300px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+                padding: 10px 0;
+            }
+
+            nav ul li a {
+                padding: 10px;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            /* Hero */
+            .hero-section .container {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            /* تحديث محاذاة النص في الجوال */
+            .hero-content h2, .hero-content h3 {
+                text-align: center;
+            }
+            
+            .hero-image {
+                margin-bottom: 30px;
+            }
+
+            /* Sections */
+            section {
+                padding: 40px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1 class="logo">Ibrahim Elmdawy</h1>
+            <nav id="nav-menu">
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#about">About Me</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+        </div>
+    </header>
+
+    <section id="hero" class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <p>Hello, I am</p>
+                <h2><span class="first-letter">I</span>brahim Elmdawy</h2>
+                <h3>Data Analyst</h3>
+                <p>A specialist in building innovative and engaging web solutions.</p>
+                <a href="#projects" class="btn primary-btn">View My Work</a>
+                <a href="Ibrahim_Elmdawy_CV.pdf" target="_blank" class="btn secondary-btn" rel="noopener noreferrer">Download CV</a>
+            </div>
+            <div class="hero-image">
+                <img src="https://i.ibb.co/Xz1137c/image.png" alt="Ibrahim Elmdawy Professional Photo">
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>
+                I am **Ibrahim Elmdawy**, a dedicated **Data Analyst** based in **Tanta, Gharbia, Egypt**. My expertise lies in transforming complex data sets into actionable business insights. My passion involves **statistical modeling and predictive analytics**, using tools like Python (Pandas, NumPy, Scikit-learn) and SQL to drive strategic decision-making. I constantly seek new challenges that allow me to apply my skills in **data visualization and ETL processes**. My goal is to **leverage data storytelling to optimize organizational performance and achieve measurable growth.**
+            </p>
+            <p>
+                **Location:** Tanta, Gharbia, Egypt
+            </p>
+        </div>
+    </section>
+
+    <section id="skills" class="skills-section">
+        <div class="container">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <i class="fas fa-database"></i>
+                    <h3>SQL & Databases</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-python"></i>
+                    <h3>Python (Pandas, Scikit)</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-chart-bar"></i>
+                    <h3>Data Visualization (Tableau/Power BI)</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-file-excel"></i>
+                    <h3>Advanced Excel</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <h2>Latest Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img src="project-1-image.jpg" alt="First Project Name">
+                    <h3>First Project Name</h3>
+                    <p>A brief description of the project and the technologies used (e.g., Python, Tableau).</p>
+                    <a href="#" target="_blank" class="project-link" rel="noopener noreferrer">View Project</a>
+                </div>
+                <div class="project-card">
+                    <img src="project-2-image.jpg" alt="Second Project Name">
+                    <h3>Second Project Name</h3>
+                    <p>A brief description of the project and the technologies used (e.g., SQL, Power BI).</p>
+                    <a href="#" target="_blank" class="project-link" rel="noopener noreferrer">View Project</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <p>I am available for new projects and job opportunities. Contact me via:</p>
+            <form id="contact-form">
+                <input type="text" name="name" placeholder="Full Name" required>
+                <input type="email" name="email" placeholder="Email Address" required>
+                <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                <button type="submit" class="btn primary-btn">Send Message</button>
+                <p id="form-message" style="margin-top: 10px;"></p>
+            </form>
+            <div class="social-links">
+                <a href="https://linkedin.com/in/yourprofile" target="_blank" aria-label="LinkedIn" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/yourprofile" target="_blank" aria-label="GitHub" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+                <a href="mailto:almdawyabrahym0@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                <a href="tel:+201016187009" aria-label="Phone (01016187009)" style="margin-right: 15px;"><i class="fas fa-phone"></i></a>
+            </div>
+            <p style="margin-top: 10px;">
+                **Mobile:** +20 101 618 7009 | **Email:** almdawyabrahym0@gmail.com
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Ibrahim Elmdawy. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. وظيفة تبديل قائمة التنقل على الجوال
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navMenu = document.getElementById('nav-menu');
+
+            menuToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('open');
+            });
+
+            // إغلاق القائمة عند الضغط على أي رابط فيها
+            navMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('open');
+                });
+            });
+
+
+            // 2. معالجة نموذج التواصل (Frontend Only)
+            const contactForm = document.getElementById('contact-form');
+            const formMessage = document.getElementById('form-message');
+
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                formMessage.textContent = '... Sending your message';
+                formMessage.style.color = '#007BFF';
+
+                // محاكاة تأخير الإرسال
+                setTimeout(() => {
+                    const formData = new FormData(contactForm);
+                    const name = formData.get('name');
+                    
+                    if (name) {
+                        formMessage.textContent = `Thank you, ${name}! Your message has been received successfully. I will contact you shortly.`;
+                        formMessage.style.color = 'green';
+                        contactForm.reset();
+                    } else {
+                        formMessage.textContent = 'Something went wrong. Please fill in all fields.';
+                        formMessage.style.color = 'red';
+                    }
+
+                }, 2000);
+            });
+        });
+    </script>
+</body>
+</html>
