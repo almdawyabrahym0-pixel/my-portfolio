@@ -17,6 +17,7 @@
             --heading-color: #f8f9fa; /* لون العناوين (White) */
             --border-radius: 8px;
             --transition-speed: 0.3s;
+            --golden-border: #FFD700; /* لون ذهبي */
         }
 
         /* إعادة ضبط المتصفح (Reset) */
@@ -197,17 +198,24 @@
         .hero-image {
             flex: 1;
             text-align: center;
+            position: relative; /* لإطار الأنيميشن */
         }
 
         .hero-image img {
             max-width: 100%;
             height: auto;
             border-radius: 50%;
-            border: 5px solid var(--primary-color);
-            box-shadow: 0 0 20px rgba(0, 188, 212, 0.5); /* تحديث الظل ليتناسب مع اللون الأساسي */
+            border: 5px solid black; /* إطار داخلي أسود */
+            box-shadow: 0 0 0 5px var(--golden-border); /* إطار ذهبي خارجي */
             width: 250px;
             height: 250px;
             object-fit: cover;
+            transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out; /* للأنيميشن */
+        }
+
+        .hero-image img:hover {
+            transform: scale(1.05) rotate(2deg); /* تكبير ودوران خفيف */
+            box-shadow: 0 0 0 10px var(--golden-border), 0 0 20px rgba(255, 215, 0, 0.6); /* زيادة حجم الظل الذهبي وتوهج */
         }
 
         /* 🛠️ المهارات (Skills) */
@@ -423,12 +431,12 @@
                 <p>Hello, I am</p>
                 <h2>Ibrahim Elmdawy</h2>
                 <h3>Data Analyst</h3>
-                <p>A specialist in building innovative and engaging web solutions.</p>
+                <p>A specialist in transforming complex data into actionable business insights.</p>
                 <a href="#projects" class="btn primary-btn">View My Work</a>
                 <a href="Ibrahim_Elmdawy_CV.pdf" target="_blank" class="btn secondary-btn" rel="noopener noreferrer">Download CV</a>
             </div>
             <div class="hero-image">
-                <img src="your-professional-photo.jpg" alt="Ibrahim Elmdawy Professional Photo">
+                <img src="https://i.ibb.co/3s6Jz0D/Ibrahim-Elmdawy.png" alt="Ibrahim Elmdawy Professional Photo">
             </div>
         </div>
     </section>
