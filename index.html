@@ -58,6 +58,7 @@
             margin-bottom: 20px;
             background-color: var(--background-dark); /* خلفية داكنة للعناصر */
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            border-radius: var(--border-radius); /* إضافة انحناء للزوايا على الأقسام */
         }
 
         h2 {
@@ -120,6 +121,7 @@
             position: sticky;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* إضافة ظل للرأس */
         }
 
         header .container {
@@ -163,6 +165,8 @@
         .hero-section {
             background: var(--background-light);
             padding: 100px 0;
+            border-radius: 0; /* إلغاء انحناء الزوايا لقسم البطل */
+            box-shadow: none; /* إلغاء الظل لقسم البطل */
         }
 
         .hero-section .container {
@@ -180,7 +184,7 @@
             font-size: 3.5rem;
             color: var(--heading-color);
             margin-bottom: 10px;
-            text-align: left; /* تغيير محاذاة النص */
+            text-align: left;
         }
         
         .hero-content h3 {
@@ -204,10 +208,16 @@
             height: auto;
             border-radius: 50%;
             border: 5px solid var(--primary-color);
-            box-shadow: 0 0 20px rgba(0, 188, 212, 0.5); /* تحديث الظل ليتناسب مع اللون الأساسي */
-            width: 250px;
-            height: 250px;
+            box-shadow: 0 0 20px rgba(0, 188, 212, 0.7); /* تحديث الظل ليتناسب مع اللون الأساسي */
+            width: 300px; /* زيادة حجم الصورة */
+            height: 300px; /* زيادة حجم الصورة */
             object-fit: cover;
+            filter: grayscale(10%); /* إضافة تأثير بسيط للصورة */
+            transition: filter 0.5s ease;
+        }
+        
+        .hero-image img:hover {
+            filter: grayscale(0%); /* إزالة تأثير التدرج الرمادي عند التحويم */
         }
 
         /* 🛠️ المهارات (Skills) */
@@ -224,11 +234,13 @@
             border-radius: var(--border-radius);
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
             transition: transform var(--transition-speed);
+            border-bottom: 3px solid var(--primary-color); /* إضافة خط سفلي بلون أساسي */
         }
 
         .skill-item:hover {
             transform: translateY(-5px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+            background-color: #333333; /* تغيير بسيط في الخلفية عند التحويم */
         }
 
         .skill-item i {
@@ -259,6 +271,7 @@
 
         .project-card:hover {
             transform: scale(1.03);
+            box-shadow: 0 8px 20px rgba(0, 188, 212, 0.2); /* ظل متوهج عند التحويم */
         }
 
         .project-card img {
@@ -294,6 +307,8 @@
         .contact-section {
             text-align: center;
             background-color: var(--background-light);
+            box-shadow: none;
+            border-radius: 0;
         }
 
         #contact-form {
@@ -327,9 +342,10 @@
         }
 
         .social-links a {
-            font-size: 1.5rem;
-            margin: 0 10px;
+            font-size: 1.8rem; /* تكبير حجم أيقونات التواصل */
+            margin: 0 15px;
             color: var(--secondary-color);
+            transition: color 0.2s ease-in-out;
         }
 
         .social-links a:hover {
@@ -391,6 +407,11 @@
             .hero-image {
                 margin-bottom: 30px;
             }
+            
+            .hero-image img {
+                width: 200px;
+                height: 200px;
+            }
 
             /* Sections */
             section {
@@ -423,12 +444,12 @@
                 <p>Hello, I am</p>
                 <h2>Ibrahim Elmdawy</h2>
                 <h3>Data Analyst</h3>
-                <p>A specialist in building innovative and engaging web solutions.</p>
+                <p>A specialist in transforming raw data into **clear, actionable insights** to drive business strategy and measurable growth.</p>
                 <a href="#projects" class="btn primary-btn">View My Work</a>
                 <a href="Ibrahim_Elmdawy_CV.pdf" target="_blank" class="btn secondary-btn" rel="noopener noreferrer">Download CV</a>
             </div>
             <div class="hero-image">
-                <img src="your-professional-photo.jpg" alt="Ibrahim Elmdawy Professional Photo">
+                <img src="photo_2025-10-14_21-57-57.jpg" alt="Ibrahim Elmdawy Professional Photo">
             </div>
         </div>
     </section>
@@ -437,7 +458,7 @@
         <div class="container">
             <h2>About Me</h2>
             <p>
-                I am **Ibrahim Elmdawy**, a dedicated **Data Analyst** based in **Tanta, Gharbia, Egypt**. My expertise lies in transforming complex data sets into actionable business insights. My passion involves **statistical modeling and predictive analytics**, using tools like Python (Pandas, NumPy, Scikit-learn) and SQL to drive strategic decision-making. I constantly seek new challenges that allow me to apply my skills in **data visualization and ETL processes**. My goal is to **leverage data storytelling to optimize organizational performance and achieve measurable growth.**
+                I am **Ibrahim Elmdawy**, a dedicated **Data Analyst** based in **Tanta, Gharbia, Egypt**. My expertise lies in transforming complex data sets into actionable business insights. My passion involves **statistical modeling and predictive analytics**, using tools like Python (Pandas, NumPy, Scikit-learn) and SQL to drive strategic decision-making. I constantly seek new challenges that allow me to apply my skills in **data visualization and ETL processes (Extract, Transform, Load)**. My goal is to **leverage data storytelling to optimize organizational performance and achieve measurable growth.**
             </p>
             <p>
                 **Location:** Tanta, Gharbia, Egypt
@@ -451,11 +472,11 @@
             <div class="skills-grid">
                 <div class="skill-item">
                     <i class="fas fa-database"></i>
-                    <h3>SQL & Databases</h3>
+                    <h3>SQL & Databases (PostgreSQL, MySQL)</h3>
                 </div>
                 <div class="skill-item">
                     <i class="fab fa-python"></i>
-                    <h3>Python (Pandas, Scikit)</h3>
+                    <h3>Python (Pandas, NumPy, Scikit-learn)</h3>
                 </div>
                 <div class="skill-item">
                     <i class="fas fa-chart-bar"></i>
@@ -463,7 +484,15 @@
                 </div>
                 <div class="skill-item">
                     <i class="fas fa-file-excel"></i>
-                    <h3>Advanced Excel</h3>
+                    <h3>Advanced Excel & VBA</h3>
+                </div>
+                 <div class="skill-item">
+                    <i class="fas fa-cloud"></i>
+                    <h3>Cloud Basics (AWS/Azure)</h3>
+                </div>
+                 <div class="skill-item">
+                    <i class="fas fa-search-dollar"></i>
+                    <h3>Statistical Analysis & Modeling</h3>
                 </div>
             </div>
         </div>
@@ -474,15 +503,21 @@
             <h2>Latest Projects</h2>
             <div class="projects-grid">
                 <div class="project-card">
-                    <img src="project-1-image.jpg" alt="First Project Name">
-                    <h3>First Project Name</h3>
-                    <p>A brief description of the project and the technologies used (e.g., Python, Tableau).</p>
+                    <img src="project-1-image.jpg" alt="Sales Performance Dashboard">
+                    <h3>Sales Performance Dashboard</h3>
+                    <p>Designed and implemented a dynamic dashboard in **Power BI** to track key sales metrics, resulting in a 15% improvement in forecasting accuracy.</p>
                     <a href="#" target="_blank" class="project-link" rel="noopener noreferrer">View Project</a>
                 </div>
                 <div class="project-card">
-                    <img src="project-2-image.jpg" alt="Second Project Name">
-                    <h3>Second Project Name</h3>
-                    <p>A brief description of the project and the technologies used (e.g., SQL, Power BI).</p>
+                    <img src="project-2-image.jpg" alt="Customer Churn Prediction">
+                    <h3>Customer Churn Prediction</h3>
+                    <p>Used **Python (Scikit-learn)** to build a logistic regression model for predicting customer churn, achieving 88% model accuracy.</p>
+                    <a href="#" target="_blank" class="project-link" rel="noopener noreferrer">View Project</a>
+                </div>
+                 <div class="project-card">
+                    <img src="project-3-image.jpg" alt="SQL ETL Pipeline">
+                    <h3>Automated ETL Pipeline</h3>
+                    <p>Developed an ETL process using advanced **SQL** queries and stored procedures to clean and transform large datasets efficiently.</p>
                     <a href="#" target="_blank" class="project-link" rel="noopener noreferrer">View Project</a>
                 </div>
             </div>
@@ -492,7 +527,7 @@
     <section id="contact" class="contact-section">
         <div class="container">
             <h2>Contact Me</h2>
-            <p>I am available for new projects and job opportunities. Contact me via:</p>
+            <p>I am available for new projects and job opportunities. Feel free to connect or send a message:</p>
             <form id="contact-form">
                 <input type="text" name="name" placeholder="Full Name" required>
                 <input type="email" name="email" placeholder="Email Address" required>
