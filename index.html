@@ -4,22 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ibrahim Elmdawy - Data Analyst Portfolio</title>
+    <!-- 1) Typography: Google Fonts (Poppins for Headings, Inter for Body) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <style>
-        /* 📌 أساسيات وتنسيقات عامة (الوضع الداكن - Dark Mode) */
+        /* 🎨 2) Color Palette and Global Variables (Light Mode) */
         :root {
-            --primary-color: #00bcd4; /* لون أساسي أزرق سماوي/تركواز (للتباين) */
-            --secondary-color: #f8f9fa; /* لون ثانوي فاتح للنصوص الرئيسية */
-            --background-light: #121212; /* خلفية داكنة جداً (Dark Background) */
-            --background-dark: #1e1e1e; /* خلفية للعناصر الأغمق قليلاً (Card/Section Background) */
-            --text-color: #e0e0e0; /* لون النصوص الأساسي (Light Gray) */
-            --heading-color: #f8f9fa; /* لون العناوين (White) */
-            --border-radius: 8px;
+            --primary-color: #4F46E5; /* بنفسجي ملكي Primary: #4F46E5 */
+            --accent-color: #10B981; /* أخضر حديث Accent: #10B981 */
+            --background-color: #F9FAFB; /* أبيض رمادي ناعم Background: #F9FAFB */
+            --card-color: #FFFFFF; /* خلفية الكروت بيضاء */
+            --text-color: #111827; /* أسود ناعم Text: #111827 */
+            --secondary-text-color: #6B7280; /* لون ثانوي رمادي للنصوص */
+            --border-radius-large: 16px; /* 8) Overall Style: Rounded Corners (12px-20px) */
             --transition-speed: 0.3s;
         }
 
-        /* إعادة ضبط المتصفح (Reset) */
+        /* 📌 Global Reset & Base Styles */
         * {
             margin: 0;
             padding: 0;
@@ -27,15 +30,31 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            background-color: var(--background-light);
+            background-color: var(--background-color);
             color: var(--text-color);
-            direction: ltr; /* تغيير اتجاه الصفحة إلى اليسار */
+            direction: ltr; 
             text-align: left;
             scroll-behavior: smooth;
         }
 
+        /* 1) Typography Settings */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700; /* Headings font-weight: 600 أو 700 */
+            color: var(--text-color);
+        }
+        
+        p, a, input, textarea, button {
+            font-family: 'Inter', sans-serif; /* Inter أو Roboto للـ Paragraphs */
+        }
+
+        p {
+            font-weight: 400; /* Paragraph font-weight: 300 أو 400 */
+            line-height: 1.6; /* Line-height للنص: 1.6 */
+            letter-spacing: 0.5px; /* Letter-spacing بسيط جدًا: 0.5px */
+            color: var(--secondary-text-color);
+        }
+        
         a {
             text-decoration: none;
             color: var(--primary-color);
@@ -43,30 +62,34 @@
         }
 
         a:hover {
-            color: var(--secondary-color);
+            color: var(--accent-color);
         }
 
+        /* 3) Layout: Centered Container */
         .container {
-            width: 90%;
-            max-width: 1200px;
+            width: 100%;
+            max-width: 1100px; /* max-width: 1100px; */
             margin: 0 auto;
-            padding: 20px 0;
+            padding: 0 20px; /* padding: 0 20px; */
         }
 
+        /* 3) Layout: Section Spacing */
         section {
-            padding: 80px 0;
-            margin-bottom: 20px;
-            background-color: var(--background-dark); /* خلفية داكنة للعناصر */
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-            border-radius: var(--border-radius); /* إضافة انحناء للزوايا على الأقسام */
+            padding: 80px 0; /* مساحات كبيرة بين الـ sections: 80px 0 */
+            margin-bottom: 0; /* تم إزالة الـ margin لتقليل الفراغات البيضاء غير الضرورية */
+        }
+        
+        /* 8) Overall Style: Rounded Corners for all major elements */
+        .card, .btn, img, input, textarea {
+            border-radius: var(--border-radius-large); 
         }
 
         h2 {
-            color: var(--heading-color);
             font-size: 2.5rem;
             margin-bottom: 40px;
             text-align: center;
             position: relative;
+            font-weight: 700;
         }
 
         h2::after {
@@ -79,28 +102,29 @@
             border-radius: 2px;
         }
 
-        /* 🖼️ الأزرار (Buttons) */
+        /* 🖼️ Buttons (CTA Style) */
         .btn {
             display: inline-block;
-            padding: 10px 25px;
-            margin: 5px;
-            border-radius: var(--border-radius);
-            font-weight: bold;
+            padding: 14px 30px; /* 4) Hero Section: padding: 14px 30px */
+            margin: 8px 10px 8px 0;
+            border-radius: 12px; /* 4) Hero Section: border-radius: 12px */
+            font-weight: 600;
             cursor: pointer;
-            transition: all var(--transition-speed);
+            transition: all var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1); /* ✨ Animations */
             text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
         }
 
         .primary-btn {
-            background-color: var(--primary-color);
-            color: black; /* تغيير لون النص ليكون واضحاً على الخلفية الفاتحة الأساسية */
+            background-color: var(--primary-color); 
+            color: white;
             border: 2px solid var(--primary-color);
         }
 
         .primary-btn:hover {
-            background-color: var(--secondary-color);
-            border-color: var(--secondary-color);
-            color: #121212; /* لون داكن للنص عند التحويم */
+            transform: translateY(-2px); /* 4) Hero Section: hover: transform: translateY(-2px) */
+            background-color: #3b32c0; /* Slightly darker indigo */
+            box-shadow: 0 8px 15px rgba(79, 70, 229, 0.4);
         }
 
         .secondary-btn {
@@ -110,29 +134,26 @@
         }
 
         .secondary-btn:hover {
+            transform: translateY(-2px);
             background-color: var(--primary-color);
-            color: black; /* لون داكن للنص عند التحويم */
+            color: white;
+            box-shadow: 0 6px 10px rgba(79, 70, 229, 0.2);
         }
 
-        /* 🔝 رأس الصفحة (Header) */
+        /* 🔝 Header (Sticky Navbar) */
         header {
-            background-color: #000000; /* تعيين لون الرأس بالأسود الحالك */
-            color: white;
-            position: sticky;
+            background-color: var(--card-color);
+            position: sticky; /* خلي الـ navbar ثابت (sticky) */
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* إضافة ظل للرأس */
-        }
-
-        header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding: 10px 0;
         }
 
         .logo {
             font-size: 1.8rem;
-            color: white;
+            color: var(--text-color);
+            font-weight: 700;
         }
 
         nav ul {
@@ -141,14 +162,13 @@
         }
 
         nav ul li a {
-            color: white;
-            padding: 15px 20px;
+            color: var(--text-color);
+            padding: 10px 15px;
             display: block;
-            font-weight: 500;
+            font-weight: 600;
         }
 
         nav ul li a:hover {
-            background-color: rgba(255, 255, 255, 0.1);
             color: var(--primary-color);
         }
 
@@ -156,46 +176,82 @@
             display: none;
             background: none;
             border: none;
-            color: white;
+            color: var(--text-color);
             font-size: 1.5rem;
             cursor: pointer;
         }
 
-        /* 🦸 قسم البطل (Hero) */
+        /* 🦸 4) Hero Section */
         .hero-section {
-            background: var(--background-light);
             padding: 100px 0;
-            border-radius: 0; /* إلغاء انحناء الزوايا لقسم البطل */
-            box-shadow: none; /* إلغاء الظل لقسم البطل */
         }
 
         .hero-section .container {
-            display: flex;
+            display: flex; /* 3) Layout: Flexbox */
             align-items: center;
             justify-content: space-between;
             gap: 40px;
         }
 
         .hero-content {
-            flex: 1;
+            flex: 1.5;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.125rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 10px;
         }
 
         .hero-content h2 {
-            font-size: 3.5rem;
-            color: var(--heading-color);
-            margin-bottom: 10px;
+            font-size: 3rem; /* عنوان كبير جدًا: 48px */
+            margin-bottom: 5px;
             text-align: left;
+            /* Typing Animation Style */
+            overflow: hidden; 
+            white-space: nowrap; 
+            border-right: 0.15em solid var(--primary-color);
+            animation: none; 
+            width: 0; 
+            color: var(--text-color);
         }
         
         .hero-content h3 {
-            font-size: 2rem;
-            color: var(--primary-color);
+            font-size: 1.125rem; /* سطر Sub-title: 18px */
+            color: var(--secondary-text-color);
+            opacity: 0.8; /* opacity: .8 */
             margin-bottom: 20px;
+            text-align: left;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 0.15em solid var(--primary-color);
+            animation: none;
+            width: 0;
+            opacity: 0; 
         }
 
-        .hero-content p {
+        /* 💡 Typing Animation Keyframes */
+        @keyframes blink-caret {
+          from, to { border-color: transparent }
+          50% { border-color: var(--primary-color); }
+        }
+
+        .hero-content .typing {
+            animation: typing 3s steps(22, end) 1s forwards, blink-caret .75s step-end infinite;
+        }
+
+        .hero-content .typing-job {
+            animation: typing-job 2s steps(12, end) forwards, blink-caret .75s step-end infinite;
+            animation-delay: 4.5s; 
+            opacity: 1;
+        }
+
+
+        .hero-content p.description {
             font-size: 1.1rem;
             margin-bottom: 30px;
+            margin-top: 20px;
         }
 
         .hero-image {
@@ -206,109 +262,111 @@
         .hero-image img {
             max-width: 100%;
             height: auto;
-            border-radius: 50%;
-            border: 5px solid var(--primary-color);
-            box-shadow: 0 0 20px rgba(0, 188, 212, 0.7); /* تحديث الظل ليتناسب مع اللون الأساسي */
-            width: 300px; /* زيادة حجم الصورة */
-            height: 300px; /* زيادة حجم الصورة */
+            border-radius: var(--border-radius-large);
+            border: 4px solid var(--primary-color);
+            box-shadow: 0 10px 30px rgba(79, 70, 229, 0.2);
+            width: 300px;
+            height: 300px;
             object-fit: cover;
-            filter: grayscale(10%); /* إضافة تأثير بسيط للصورة */
-            transition: filter 0.5s ease;
+            filter: grayscale(10%);
+            transition: all 0.5s ease;
         }
         
         .hero-image img:hover {
-            filter: grayscale(0%); /* إزالة تأثير التدرج الرمادي عند التحويم */
+            filter: grayscale(0%);
+            transform: scale(1.02);
         }
 
-        /* 🛠️ المهارات (Skills) */
+        /* 🛠️ Skills Section */
         .skills-grid {
-            display: grid;
+            display: grid; /* 3) Layout: Grid */
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 30px;
             text-align: center;
         }
 
         .skill-item {
-            background-color: #2c2c2c; /* لون أغمق لعناصر المهارات */
+            background-color: var(--card-color);
             padding: 30px;
-            border-radius: var(--border-radius);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-            transition: transform var(--transition-speed);
-            border-bottom: 3px solid var(--primary-color); /* إضافة خط سفلي بلون أساسي */
+            border-radius: var(--border-radius-large);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+            border-bottom: 4px solid var(--primary-color);
         }
 
         .skill-item:hover {
             transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
-            background-color: #333333; /* تغيير بسيط في الخلفية عند التحويم */
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            border-bottom-color: var(--accent-color);
         }
 
         .skill-item i {
             font-size: 3rem;
-            color: var(--primary-color);
+            color: var(--accent-color); /* خلي العناصر المهمة بالـ Accent */
             margin-bottom: 15px;
+            transition: color 0.3s;
         }
 
         .skill-item h3 {
             font-size: 1.2rem;
-            color: var(--heading-color);
+            font-weight: 600;
         }
 
-        /* 💼 المشاريع (Projects) */
+        /* 💼 6) Projects Section – عرض المشروعات */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
         }
 
         .project-card {
-            background-color: #2c2c2c; /* لون أغمق لبطاقات المشاريع */
-            border-radius: var(--border-radius);
+            background-color: var(--card-color); /* background: white */
+            border-radius: var(--border-radius-large); 
             overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            transition: transform var(--transition-speed);
+            padding: 20px; /* padding: 20px */
+            box-shadow: 0 4px 20px rgba(0,0,0,.05); /* box-shadow خفيف جدًا */
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
         }
 
         .project-card:hover {
-            transform: scale(1.03);
-            box-shadow: 0 8px 20px rgba(0, 188, 212, 0.2); /* ظل متوهج عند التحويم */
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(79, 70, 229, 0.15);
         }
 
+        .project-image-wrapper {
+            margin-bottom: 15px;
+            overflow: hidden;
+            /* border-radius: 12px; */
+        }
+        
         .project-card img {
             width: 100%;
-            height: 200px;
+            height: 220px;
             object-fit: cover;
+            border-radius: 12px; /* صورة المشروع تكون بـ radius 12px */
+            transition: transform 0.5s ease;
+        }
+        
+        .project-card:hover img {
+            transform: scale(1.05);
         }
 
+
         .project-card h3 {
-            padding: 15px;
-            color: var(--primary-color);
+            font-size: 1.375rem; /* عنوان المشروع font-size: 22px */
+            color: var(--text-color);
+            margin-bottom: 10px;
+            font-weight: 600;
         }
 
         .project-card p {
-            padding: 0 15px 15px;
+            font-size: 0.9375rem; /* Description صغير: font-size: 15px */
+            margin-bottom: 20px;
         }
 
-        .project-link {
-            display: block;
-            padding: 15px;
-            text-align: center;
-            background-color: var(--primary-color);
-            color: black; /* لون داكن للارتباط لتباين جيد */
-            font-weight: bold;
-        }
-
-        .project-link:hover {
-            background-color: var(--secondary-color);
-            color: #121212;
-        }
-
-        /* 📧 التواصل (Contact) */
+        /* 📧 Contact Section */
         .contact-section {
             text-align: center;
-            background-color: var(--background-light);
-            box-shadow: none;
-            border-radius: 0;
         }
 
         #contact-form {
@@ -316,25 +374,29 @@
             margin: 30px auto;
             display: grid;
             gap: 15px;
+            background-color: var(--card-color);
+            padding: 30px;
+            border-radius: var(--border-radius-large);
+            box-shadow: 0 4px 20px rgba(0,0,0,.05);
         }
 
         #contact-form input,
         #contact-form textarea {
             width: 100%;
             padding: 15px;
-            background-color: #333; /* خلفية داكنة لحقول الإدخال */
-            border: 1px solid #555;
-            border-radius: var(--border-radius);
+            background-color: var(--background-color);
+            border: 1px solid #e5e7eb;
             font-size: 1rem;
-            transition: border-color var(--transition-speed);
+            transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
             color: var(--text-color);
-            text-align: left; /* تغيير محاذاة النص داخل الحقول */
         }
 
         #contact-form input:focus,
         #contact-form textarea:focus {
             border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
             outline: none;
+            background-color: white;
         }
 
         .social-links {
@@ -342,26 +404,32 @@
         }
 
         .social-links a {
-            font-size: 1.8rem; /* تكبير حجم أيقونات التواصل */
+            font-size: 1.8rem;
             margin: 0 15px;
-            color: var(--secondary-color);
-            transition: color 0.2s ease-in-out;
+            color: var(--secondary-text-color);
         }
 
         .social-links a:hover {
             color: var(--primary-color);
+            transform: scale(1.1);
         }
 
-        /* 🦶 التذييل (Footer) */
+        /* 🦶 Footer */
         footer {
-            background-color: #000000; /* أسود حالك */
+            background-color: var(--text-color);
             color: white;
             text-align: center;
-            padding: 30px 0; /* زيادة مساحة التذييل */
+            padding: 20px 0;
+            margin-top: 0;
         }
 
-        /* 📱 استجابة شاشات الجوال (Media Query) */
+        /* 📱 7) Responsive – الموبايل */
         @media (max-width: 768px) {
+            /* 7) المسافات بين السكاشن تقل شوية لـ 50px */
+            section {
+                padding: 50px 0;
+            }
+            
             /* Header */
             header .container {
                 flex-wrap: wrap;
@@ -385,10 +453,6 @@
                 padding: 10px 0;
             }
 
-            nav ul li a {
-                padding: 10px;
-            }
-
             .menu-toggle {
                 display: block;
             }
@@ -399,23 +463,35 @@
                 text-align: center;
             }
 
-            /* تحديث محاذاة النص في الجوال */
-            .hero-content h2, .hero-content h3 {
+            .hero-content h2 {
+                font-size: 2rem; /* 7) العنوان 32px بدل 48px */
                 text-align: center;
+                white-space: normal;
+                border-right: none; 
+                width: auto !important; 
+                animation: none !important;
             }
             
+            .hero-content h3 {
+                text-align: center;
+                white-space: normal;
+                border-right: none; 
+                width: auto !important; 
+                animation: none !important;
+                opacity: 1; 
+            }
+            
+            .hero-content .subtitle {
+                 text-align: center;
+            }
+
             .hero-image {
                 margin-bottom: 30px;
             }
             
-            .hero-image img {
-                width: 200px;
-                height: 200px;
-            }
-
-            /* Sections */
-            section {
-                padding: 40px 0;
+            /* Projects */
+            .projects-grid {
+                 grid-template-columns: 1fr; /* 7) الكروت تتحول عمود واحد */
             }
         }
     </style>
@@ -441,15 +517,16 @@
     <section id="hero" class="hero-section">
         <div class="container">
             <div class="hero-content">
-                <p>Hello, I am</p>
-                <h2>Ibrahim Elmdawy</h2>
-                <h3>Data Analyst</h3>
-                <p>A specialist in transforming raw data into **clear, actionable insights** to drive business strategy and measurable growth.</p>
-                <a href="#projects" class="btn primary-btn">View My Work</a>
+                <p class="subtitle">Hello, I am</p>
+                <!-- IDs for Typing Animation -->
+                <h2 id="typing-name">Ibrahim Elmdawy</h2>
+                <h3 id="typing-job">Data Analyst</h3> 
+                <p class="description">A specialist in transforming raw data into **clear, actionable insights** to drive business strategy and measurable growth.</p>
+                <a href="#contact" class="btn primary-btn">Hire Me</a> <!-- 4) CTA (تواصل / Hire Me) -->
                 <a href="Ibrahim_Elmdawy_CV.pdf" target="_blank" class="btn secondary-btn" rel="noopener noreferrer">Download CV</a>
             </div>
             <div class="hero-image">
-                <img src="photo_2025-10-14_21-57-57.jpg" alt="Ibrahim Elmdawy Professional Photo">
+                <img src="photo_2025-10-14_21-57-57.jpg" alt="">
             </div>
         </div>
     </section>
@@ -472,27 +549,33 @@
             <div class="skills-grid">
                 <div class="skill-item">
                     <i class="fas fa-database"></i>
-                    <h3>SQL & Databases (PostgreSQL, MySQL)</h3>
+                    <h3>SQL & Databases</h3>
+                    <p>PostgreSQL, MySQL, Stored Procedures, Advanced Queries.</p>
                 </div>
                 <div class="skill-item">
                     <i class="fab fa-python"></i>
-                    <h3>Python (Pandas, NumPy, Scikit-learn)</h3>
+                    <h3>Python</h3>
+                    <p>Pandas, NumPy, Matplotlib, Scikit-learn, Data Cleaning.</p>
                 </div>
                 <div class="skill-item">
-                    <i class="fas fa-chart-bar"></i>
-                    <h3>Data Visualization (Tableau/Power BI)</h3>
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Data Visualization</h3>
+                    <p>Tableau, Power BI, Creating Interactive Dashboards.</p>
                 </div>
                 <div class="skill-item">
                     <i class="fas fa-file-excel"></i>
-                    <h3>Advanced Excel & VBA</h3>
+                    <h3>Analytics Tools</h3>
+                    <p>Advanced Excel, VBA, Google Sheets, Statistical Tools.</p>
                 </div>
                  <div class="skill-item">
                     <i class="fas fa-cloud"></i>
-                    <h3>Cloud Basics (AWS/Azure)</h3>
+                    <h3>Cloud & ETL</h3>
+                    <p>AWS/Azure basics, Data Warehousing concepts, ETL Pipelines.</p>
                 </div>
                  <div class="skill-item">
                     <i class="fas fa-search-dollar"></i>
-                    <h3>Statistical Analysis & Modeling</h3>
+                    <h3>Statistical Analysis</h3>
+                    <p>Hypothesis Testing, Regression Analysis, Predictive Modeling.</p>
                 </div>
             </div>
         </div>
@@ -502,23 +585,35 @@
         <div class="container">
             <h2>Latest Projects</h2>
             <div class="projects-grid">
+                <!-- 6) Project Card 1: Clean, Light Design -->
                 <div class="project-card">
-                    <img src="project-1-image.jpg" alt="Sales Performance Dashboard">
+                    <div class="project-image-wrapper">
+                         <!-- Use placeholder image URL with descriptive name -->
+                        <img src="https://placehold.co/600x400/4F46E5/FFFFFF?text=Sales+Dashboard" alt="[Image of Sales Performance Dashboard]">
+                    </div>
                     <h3>Sales Performance Dashboard</h3>
                     <p>Designed and implemented a dynamic dashboard in **Power BI** to track key sales metrics, resulting in a 15% improvement in forecasting accuracy.</p>
-                    <a href="#" target="_blank" class="project-link" rel="noopener noreferrer">View Project</a>
+                    <a href="#" target="_blank" class="project-link btn primary-btn" style="width: 100%; margin: 0;">View Project</a>
                 </div>
+                <!-- 6) Project Card 2: Clean, Light Design -->
                 <div class="project-card">
-                    <img src="project-2-image.jpg" alt="Customer Churn Prediction">
+                    <div class="project-image-wrapper">
+                         <!-- Use placeholder image URL with descriptive name -->
+                        <img src="https://placehold.co/600x400/10B981/FFFFFF?text=Churn+Prediction" alt="[Image of Customer Churn Prediction Model]">
+                    </div>
                     <h3>Customer Churn Prediction</h3>
                     <p>Used **Python (Scikit-learn)** to build a logistic regression model for predicting customer churn, achieving 88% model accuracy.</p>
-                    <a href="#" target="_blank" class="project-link" rel="noopener noreferrer">View Project</a>
+                    <a href="#" target="_blank" class="project-link btn primary-btn" style="width: 100%; margin: 0;">View Project</a>
                 </div>
-                 <div class="project-card">
-                    <img src="project-3-image.jpg" alt="SQL ETL Pipeline">
+                 <!-- 6) Project Card 3: Clean, Light Design -->
+                <div class="project-card">
+                    <div class="project-image-wrapper">
+                         <!-- Use placeholder image URL with descriptive name -->
+                        <img src="https://placehold.co/600x400/111827/F9FAFB?text=SQL+ETL+Pipeline" alt="">
+                    </div>
                     <h3>Automated ETL Pipeline</h3>
-                    <p>Developed an ETL process using advanced **SQL** queries and stored procedures to clean and transform large datasets efficiently.</p>
-                    <a href="#" target="_blank" class="project-link" rel="noopener noreferrer">View Project</a>
+                    <p>Developed an ETL process using advanced **SQL** queries and stored procedures to clean and transform large datasets efficiently, reducing processing time by 30%.</p>
+                    <a href="#" target="_blank" class="project-link btn primary-btn" style="width: 100%; margin: 0;">View Project</a>
                 </div>
             </div>
         </div>
@@ -533,15 +628,15 @@
                 <input type="email" name="email" placeholder="Email Address" required>
                 <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
                 <button type="submit" class="btn primary-btn">Send Message</button>
-                <p id="form-message" style="margin-top: 10px;"></p>
+                <p id="form-message" style="margin-top: 10px; font-weight: 600;"></p>
             </form>
             <div class="social-links">
                 <a href="https://linkedin.com/in/yourprofile" target="_blank" aria-label="LinkedIn" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
                 <a href="https://github.com/yourprofile" target="_blank" aria-label="GitHub" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
                 <a href="mailto:almdawyabrahym0@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                <a href="tel:+201016187009" aria-label="Phone (01016187009)" style="margin-right: 15px;"><i class="fas fa-phone"></i></a>
+                <a href="tel:+201016187009" aria-label="Phone (01016187009)"><i class="fas fa-phone"></i></a>
             </div>
-            <p style="margin-top: 10px;">
+            <p style="margin-top: 10px; color: var(--text-color);">
                 **Mobile:** +20 101 618 7009 | **Email:** almdawyabrahym0@gmail.com
             </p>
         </div>
@@ -549,13 +644,13 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Ibrahim Elmdawy. All rights reserved.</p>
+            <p style="color: white;">&copy; 2025 Ibrahim Elmdawy. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // 1. وظيفة تبديل قائمة التنقل على الجوال
+            // 1. Mobile Menu Toggle
             const menuToggle = document.querySelector('.menu-toggle');
             const navMenu = document.getElementById('nav-menu');
 
@@ -563,15 +658,17 @@
                 navMenu.classList.toggle('open');
             });
 
-            // إغلاق القائمة عند الضغط على أي رابط فيها
+            // Close menu on link click
             navMenu.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
-                    navMenu.classList.remove('open');
+                    if (window.innerWidth <= 768) {
+                        navMenu.classList.remove('open');
+                    }
                 });
             });
 
 
-            // 2. معالجة نموذج التواصل (Frontend Only)
+            // 2. Contact Form Handler (Frontend Only)
             const contactForm = document.getElementById('contact-form');
             const formMessage = document.getElementById('form-message');
 
@@ -579,24 +676,59 @@
                 e.preventDefault();
                 
                 formMessage.textContent = '... Sending your message';
-                formMessage.style.color = '#007BFF';
+                formMessage.style.color = 'var(--primary-color)';
 
-                // محاكاة تأخير الإرسال
+                // Simulate network request delay
                 setTimeout(() => {
                     const formData = new FormData(contactForm);
                     const name = formData.get('name');
                     
                     if (name) {
                         formMessage.textContent = `Thank you, ${name}! Your message has been received successfully. I will contact you shortly.`;
-                        formMessage.style.color = 'green';
+                        formMessage.style.color = 'var(--accent-color)'; // Green success message
                         contactForm.reset();
                     } else {
                         formMessage.textContent = 'Something went wrong. Please fill in all fields.';
-                        formMessage.style.color = 'red';
+                        formMessage.style.color = '#dc3545'; // Red error message
                     }
 
                 }, 2000);
             });
+
+            // 3. Typing Animation (Re-implemented with new styles)
+            const typingNameElement = document.getElementById('typing-name');
+            const typingJobElement = document.getElementById('typing-job');
+
+            if (typingNameElement && typingJobElement && window.innerWidth > 768) {
+                // Add the animation class for the Name
+                typingNameElement.classList.add('typing');
+
+                // Time management for sequential animation
+                const nameTypingDuration = 3000; // 3 seconds
+                const nameDelay = 1000; // 1 second delay before starting
+                const jobStartDelay = nameTypingDuration + nameDelay + 500; // Total 4.5 seconds delay
+
+                setTimeout(() => {
+                    // Stop blinking caret on the Name
+                    typingNameElement.style.borderRight = 'none';
+                    
+                    // Show Job element and start its animation
+                    typingJobElement.style.opacity = '1';
+                    typingJobElement.classList.add('typing-job');
+
+                    // Stop blinking caret on the Job after its duration
+                    const jobTypingDuration = 2000; // 2 seconds
+                    setTimeout(() => {
+                        typingJobElement.style.borderRight = 'none';
+                    }, jobTypingDuration);
+
+                }, jobStartDelay);
+            } else if (typingNameElement && typingJobElement) {
+                // For mobile, display immediately
+                typingNameElement.style.width = 'auto';
+                typingJobElement.style.opacity = '1';
+                typingJobElement.style.width = 'auto';
+            }
         });
     </script>
 </body>
