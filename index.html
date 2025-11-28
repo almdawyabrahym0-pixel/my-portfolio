@@ -286,23 +286,39 @@
             flex: 1;
             text-align: center;
         }
+        
+        /* 🖼️ Animation Keyframes for Image Glow */
+        @keyframes hero-glow {
+            0%, 100% {
+                box-shadow: 0 10px 30px rgba(124, 58, 237, 0.4);
+            }
+            50% {
+                box-shadow: 0 10px 40px rgba(124, 58, 237, 0.8), 0 0 15px rgba(124, 58, 237, 0.6);
+            }
+        }
 
         .hero-image img {
             max-width: 100%;
             height: auto;
             border-radius: var(--border-radius-large);
             border: 5px solid var(--primary-color); /* Thicker border */
+            /* Initial shadow before animation starts (or fallback) */
             box-shadow: 0 10px 30px rgba(124, 58, 237, 0.4); /* Stronger shadow */
             width: 300px;
             height: 300px;
             object-fit: cover;
             filter: grayscale(10%) contrast(110%);
             transition: all 0.5s ease;
+            
+            /* Apply the animation here */
+            animation: hero-glow 3s ease-in-out infinite alternate;
         }
         
         .hero-image img:hover {
             filter: grayscale(0%) contrast(100%);
             transform: scale(1.02) rotate(1deg); /* Added subtle rotate */
+            /* Stop the glow animation on hover to highlight the transform effect */
+            animation: none; 
         }
 
         /* 🛠️ Skills Section */
@@ -529,6 +545,11 @@
             .projects-grid {
                  grid-template-columns: 1fr;
             }
+            
+            /* Remove animation on mobile for performance and consistency */
+            .hero-image img {
+                animation: none;
+            }
         }
     </style>
 </head>
@@ -563,7 +584,7 @@
                 <a href="Ibrahim_Al_Maadawi_CV.pdf" target="_blank" class="btn secondary-btn" rel="noopener noreferrer">Download CV</a>
             </div>
             <div class="hero-image">
-                <img src="photo_2025-10-14_21-57-57.jpg" alt="">
+                <img src="photo_2025-10-14_21-57-57.jpg" alt="Ibrahim Al-Maadawi - Data Analyst Profile Picture">
             </div>
         </div>
     </section>
@@ -626,7 +647,10 @@
                     <div class="project-image-wrapper">
                         <img src="https://placehold.co/600x400/7C3AED/FFFFFF?text=Sales+Dashboard" alt="
 
+
+
 [Image of Sales Performance Dashboard]
+
 ">
                     </div>
                     <h3>Sales Performance Dashboard</h3>
@@ -637,7 +661,10 @@
                     <div class="project-image-wrapper">
                         <img src="https://placehold.co/600x400/10B981/0F172A?text=Churn+Prediction" alt="
 
+
+
 [Image of Customer Churn Prediction Model]
+
 ">
                     </div>
                     <h3>Customer Churn Prediction</h3>
@@ -646,7 +673,13 @@
                 </div>
                 <div class="project-card">
                     <div class="project-image-wrapper">
-                        <img src="https://placehold.co/600x400/94A3B8/0F172A?text=SQL+Data+Pipeline" alt="">
+                        <img src="https://placehold.co/600x400/94A3B8/0F172A?text=SQL+Data+Pipeline" alt="
+
+
+
+[Image of Database tables and SQL queries]
+
+">
                     </div>
                     <h3>Automated SQL Data Pipeline</h3>
                     <p>Developed an ETL process using advanced **SQL** queries and stored procedures to clean and transform large datasets efficiently, reducing data processing time by 30%.</p>
